@@ -1,4 +1,4 @@
-AC_INIT([irssi-icb], [0.16-dev], [jonathan@perkin.org.uk])
+AC_INIT([irssi-icb], [0.17], [marcus@nazgul.ch])
 AC_PREREQ([2.61])
 
 AC_CONFIG_HEADERS(config.h)
@@ -9,6 +9,7 @@ AM_MAINTAINER_MODE
 AM_PROG_AR
 AC_PROG_CC
 AC_PROG_CPP
+AM_PROG_AR
 AC_PROG_LIBTOOL
 AC_STDC_HEADERS
 AC_ARG_PROGRAM
