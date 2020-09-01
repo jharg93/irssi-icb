@@ -6,6 +6,7 @@ AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE([-Wall -Werror foreign nostdinc silent-rules])
 AM_MAINTAINER_MODE
 
+AM_PROG_AR
 AC_PROG_CC
 AC_PROG_CPP
 AC_PROG_LIBTOOL
@@ -19,11 +20,11 @@ AC_ARG_WITH([irssi],
             [with_irssi=no])
 
 AS_IF([test "x$with_irssi" = "xno"], [
-      AS_IF([test -f ../irssi-config],
+      AS_IF([test -f ../irssi-config.h],
             [with_irssi=".."],
-            AS_IF([test -f ../irssi/irssi-config],
+            AS_IF([test -f ../irssi/irssi-config.h],
                   [with_irssi="../.."],
-                  AS_IF([test -f ../../irssi/irssi-config],
+                  AS_IF([test -f ../../irssi/irssi-config.h],
                         [with_irssi="../../irssi"],
                         AS_ERROR([Could not determine irssi directory])))) ])
 
@@ -32,7 +33,7 @@ IRSSI_INCLUDE=`cd $with_irssi; pwd`
 
 AC_SUBST(IRSSI_INCLUDE)
 
-AS_IF([test ! -f "$IRSSI_INCLUDE/irssi-config"],
+AS_IF([test ! -f "$IRSSI_INCLUDE/irssi-config.h"],
       [AC_ERROR(Not irssi directory: $IRSSI_INCLUDE)]
 )
 
